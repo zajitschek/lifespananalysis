@@ -4,7 +4,7 @@
     "slogan": "+++A free Introductory Online Course+++",
     "description": "Developed by Felix Zajitschek. Webdesign based on code and design from Ines Montani (ines.io).",
     "bio": "I am an evolutionary biologist, with main research interests in the evolution of aging, sexual conflict, and biodemography",
-    "siteUrl": "https://priceless-darwin-62f859.netlify.app/",
+    "siteUrl": "https://wizardly-joliot-a86b2b.netlify.app/",
     "twitter": "zajitschek",
     "fonts": "IBM+Plex+Mono:500|IBM+Plex+Sans:700|Lato:400,400i,700,700i",
     "testTemplate": "success <- function(text) {\n    cat(paste(\"\\033[32m\", text, \"\\033[0m\", sep = \"\"))\n}\n\n.solution <- \"${solutionEscaped}\"\n\n${solution}\n\n${test}\ntryCatch({\n    test()\n}, error = function(e) {\n    cat(paste(\"\\033[31m\", e[1], \"\\033[0m\", sep = \"\"))\n})",
