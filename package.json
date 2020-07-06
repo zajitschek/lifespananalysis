@@ -1,7 +1,7 @@
 {
-    "name": "course-starter-r",
+    "name": "lifespananalysis",
     "private": true,
-    "description": "Starter package to build interactive R courses",
+    "description": "Lifespan-analysis",
     "version": "0.0.1",
     "author": "Ines Montani <ines@explosion.ai>",
     "dependencies": {
