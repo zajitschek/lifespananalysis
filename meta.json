@@ -19,7 +19,7 @@
     "footerLinks": [
         { "text": "Website", "url": "https://lifespananalysis.zajitschek.net" },
         { "text": "Source", "url": "https://github.com/zajitschek/lifespananalysis" },
-        { "text": "Webdesign based on this", "url": "https://github.com/ines/course-starter-r" }
+        { "text": "Webdesign", "url": "https://github.com/ines/course-starter-r" }
     ],
     "theme": "#de7878"
 }
