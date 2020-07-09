@@ -1,7 +1,7 @@
 ---
 title: 'Chapter 1: Getting started: Introduction to Lifespan-Analysis'
 description:
-  'This chapter will introduce background, definitions, and soem examples of lifespan analysis'
+  'This chapter will introduce background, definitions, and examples of lifespan analysis'
 prev: null
 next: chapter2
 type: chapter
@@ -12,7 +12,7 @@ id: 1
 
 # About this course
 
-Hi and welcome, I am **[Felix Zajitschek](https://felix.zajitschek.net), an evolutionary biologist, working on topics such as aging and life-history that require to analyse or incorporate lifespan**. This course is meant mainly as a primer for students who would like to know more about various methods which can be used to accomplish this. It will give you an overview of what can be done, how to perform a number of specific analyses, and where to go when you need to analyse more complex data.. 
+Hi and welcome, I am **[Felix Zajitschek](https://felix.zajitschek.net), an evolutionary biologist, working on topics such as aging and life-history that require to analyse or incorporate lifespan**. This course was co-developed with **[Susi Zajitschek (LJMU)](https://www.ljmu.ac.uk/about-us/staff-profiles/faculty-of-science/school-of-biological-and-environmental-sciences/susanne-zajitschek)** and is meant mainly as a primer for students who would like to know more about various methods which can be used to accomplish this. It will give you an overview of what can be done, how to perform a number of specific analyses, and where to go when you need to analyse more complex data.
 
 All the actual statistical analyses are performed in the [software R](https://www.r-project.org/about.html), and you will have the opportunity to run R software scripts right here, on this website, without the need to install software on your computer.
 
@@ -45,29 +45,27 @@ For a small collection of freely available resources (that may be using other R 
 # Why is lifespan important in biology?   
 
 
-## A short side-trip to the roots of knowledge
+## What is lifespan?
 
-Humans strive to understand the world. The organized framework to do this is science, more specifically the *[scientific method](https://en.wikipedia.org/wiki/Scientific_method)*. Science is cumulative in nature. This means that studies and experiments build upon the findings of previous studies and experiments. New scientific insights might be gained by a more or less progressive accumulation of knowledge about a specific question, adding on to existing knowledge. Or, according to [Thomas Kuhn](https://en.wikipedia.org/wiki/Thomas_Kuhn), real progression in science might require [paradigm shifts](https://en.wikipedia.org/wiki/Paradigm_shift) that throw old theories over board and make way for new better theories. These shifts in how we explain the world depend themselves on the accumulation of results, which did not fit the old established theories, but which turned out to be not due to error of any kind (for example methodological mistakes or human error in performing studies).
+Organisms reproduce: they create offspring. There is asexual and sexual reproduction, and those two forms have several further varieties. Why would this be of interest when we only want to study lifespan?
 
-## What makes a successful scientific theory?
+It starts with the definition of lifespan, and related variables, such as birth, death, survival, and mortality. Let's just start with lifespan itself: what do I mean by lifespan? The [Cambridge Dictionary](https://dictionary.cambridge.org/dictionary/english/lifespan) gives us the following definition: "the length of time for which a person, animal, or thing exists". Ok, so animal lifespan is accordingly the time between the start of the existence of an animal and the end point of its existence. Why didn't I use the words birth and death instead? I thought an individual of an animal species that reproduces sexually starts existing when the egg cell (oocyte), provided by the female, successfully fuses with the sperm cell, provided by the male, and when the fertilized egg cell (zygote) blocks of other sperm cells to fuse, so that the oocyte can develop? 
 
-We are talking about empirical research here, meaning results from studies and experiments that are based on observations. But what is the criterion that scientists use to accept a scientific theory as the currently most successful theory to explain observed phenomena?
+If we would use the latter definition, in humans called the conception, we would have to add nine month on average to every human lifespan, as given in official records. Obviously we use birth instead to calculate human lifespan. In humans, successful births don't have to be vaginal/natural any more, due to modern surgery. In other animals, complications during birth (including premature birth) are normally fatal. In addition, whether a human baby is born at six months or three months later, at nine months after conception, might not have a strong effect, given the relatively long human lifespan. Death can normally be assessed much easier (although I will describe some circumstances when it's not possible to tell with high certainty whether an animal is alive or dead, eg when studying organisms in their natural habitat). We still have to be careful when referring to lifespan, as often in the scientific literature that is concerned with increasing lifespan through specific interventions, only 'adult lifespan' (the time between start of maturity and death) is the focal trait. This is especially the case in species that are not eutherian (also called *placental*) mammals: in insects, for example, there exists a wide variety of life-cycles. In insects with holometabolous metamorphosis (also called *complete metamorphosis*), larval developmental stages are very different from the adult (think of fly, beetle, and butterfly species). This means that it's comparatively easy to determine the time point of the start of adult life (eg in many species, when adults eclose from their pupae into adulthood). It's not so easy in insect species with only partial metamorphosis (called *hemimetabolous*), such as grasshoppers and crickets. In these species, larvae develop in a succession of immature stages that already resemble the adult form. For well-known species that are used in laboratory experiments, the time point when adulthood (maturity) starts can be estimated quite well, given that these species have been studied in the lab for many years, under standardized environmental conditions.
 
-- A successful scientific theory should give a good explanation and make accurate predictions
-- This should be the case in a wide range of circumstances, i.e. it shouldn't be hyper-sensitive to natural variation in traits that are not the direct focus of the studies
+Why is all this important when we only want to analyse lifespan? Because it turns out that some of these species, mentioned above, are used as model organisms in evolutionary biology and evolutionary ecology. It is essential to be aware that there might be differences in when (at what stage) experimental treatments are applied, what 'lifespan' is measured, and how this lifespan is measured, depending on the model organism. This doesn't mean that generalizations across different species are not possible! However, it means that different species, even in the same phylogenetic groups, might have quite different evolutionary histories, and therefore different adaptations and genetic architectures in general. Therefore, we have to acknowledge these differences when studying characters such as lifespan, and, whenever possible, aim to extend our research to incorporate experimental variability in environmental conditions which don't neglect the study species natural history.
 
-Different scientific disciplines will have different criteria for how we define *good explanation*, *accurate prediction*, *sensitive*, and *natural variation* that I used above.
-This self-guided course is mainly focussed on research in biological sciences. My own research involves the study of animal behaviour, which often has a high level of noise in the data, especially when compared to some studies in physics or geology (if interested, read up on the colloquial terms of soft and hard sciences, e.g. [here](https://en.wikipedia.org/wiki/Hard_and_soft_science)). 
+## Characteristics of a life from birth to death
 
-# Meta-analysis can help
+The life-history of an individual animal describes the time points of events, such as birth, developmental stage, begin of maturity/adulthood, age at first reproduction, age  and number of offspring of reproductive events, post-reproductive period, and age at death. A life-history also includes rates (change of traits over time), such as growth rate or reproductive rate. Life-histories can be described on the level of a species, a population, or for a single individual. Life-history traits are often very plastic. This means they can change, depending on environmental conditions (*phenotypic plasticity*). Lifespan is such a composite trait (a trait that is affected by so many variables), that even clones (individuals with identical genomes) in highly standardized and controlled laboratory environments don't all die at the same age (eg male Daphnia clones  (n = 50) with a median lifespan of 83 days and a 95% confidence interval around the median, from 77 to 91 days, reported in [Constantinou et al. 2019](https://www.sciencedirect.com/science/article/pii/S0531556519300762)). 
 
-We established that science works cumulatively. To gain support for specific hypothesis, we do not want to rely on the outcome of single studies. We can try to combine the knowledge gained in multiple studies which tested specific traits of interest. This can be achieved while still taking into account that studies differ in their quality and their size, for example, lending different levels of weights to their results. 
+# A short glimpse at some lifespan parameters
 
-This combination of multiple test results can be achieved by qualitatively summarising previous work on a specific subject. Classically, this was done in a literature review, for example at the beginning of a graduate or postgraduate degree. While this type of review has still its merit (especially if it is done ***systematically***), we want to introduce you here to the meta-analytical approach (which strictly speaking is a **quantitative systematic review**), which can provide a quantitative summary and test of specific research questions (the Greek prefix *meta* (μετά, "after" or "beyond") means *more comprehensive*).
+
 
 </exercise>
 
-<exercise id="3" title="Overview: the structure of a meta-analysis and some examples">
+<exercise id="3" title="The structure of this course">
 
 # Overview
 
@@ -76,18 +74,9 @@ This is meant as a first step to get you started.  Here's an overview of the wor
 ![](https://github.com/SusZaj/metaanalysis/blob/master/images/overview2.png?raw=true)
 <br>
 <br>
-As just mentioned, all of these steps have to be described and laid out in a protocol. 
-
-Protocols are necessary to minimize any bias that we might introduce - either knowingly, but most often unknowingly - into the decisions that have to be taken at each meta-analysis step. Bias might already be present in how the research question we want to tackle is phrased. Furthermore, bias can originate in the specific way we search for literature, both in where we search (for example, which databases we use, or whether we only include published results), and how we search (for example our choice of search terms).
-
-The following diagram (Figure 1 from Nakagawa et al. 2017)](https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-017-0357-7) shows a more in depth overview over steps and quality control that are part of a well-conducted meta-analysis. The questions on the right hand side need to be answered in your final product to provide reproducibility, the flow chart on the left details the methods and options that have to be considered for each step. 
-
-![](https://github.com/SusZaj/metaanalysis/blob/master/images/Nakagawa_etal_Fig1.gif?raw=true)
-<br>
-<br>
 
 ## Some examples 
-If you haven't looked at many meta-analyses yet, you can have a glance and see what questions were asked and how the results are presented in the examples below. Especially the first in the list (Macartney et al. 2019) is a very good example, with protocols, data, and R code published and made freely available (see *Data & R Code* below). In fact, we'll use a subset of their data in our guided example in the data analysis parts in Chapter 3:
+Add here
 
 - [Effects of nutrient limitation on sperm and seminal fluid: a systematic review and meta‐analysis (Macartney et al. 2019)](http://www.bonduriansky.net/Macartney_et_a_2019_Biological_Reviews.pdf) [Data & R code on osf.io](https://osf.io/aqw8u/)    
 *Macartney, E.L., Crean, A.J., Nakagawa, S. and Bonduriansky, R. 2019. Effects of nutrient limitation on sperm and seminal fluid: a systematic review and meta-analysis. Biological Reviews 94:1722-1739*
@@ -100,17 +89,5 @@ If you haven't looked at many meta-analyses yet, you can have a glance and see w
 
 - [The effect of dietary restriction on reproduction: a meta-analytic perspective (Moatt et al. 2016)](https://bmcevolbiol.biomedcentral.com/articles/10.1186/s12862-016-0768-z).   
 *Moatt, J. P., Nakagawa, S., Lagisz, M., & Walling, C. A. (2016). The effect of dietary restriction on reproduction: a meta-analytic perspective. BMC evolutionary biology, 16(1), 199. https://doi.org/10.1186/s12862-016-0768-z*
-
-**Meta-analysis and research synthesis: an outlook**
-
-- [Research Weaving: Visualizing the Future of Research Synthesis (Nakagawa et al., 2018)](https://ecoevorxiv.org/ga2qz/)   
-*Nakagawa, S., Samarasinghe, G., Haddaway, N.R., Westgate, M.J., O’Dea, R.E., Noble, D.W.A., Lagisz, M., 2019. Research weaving: visualizing the future of research synthesis. Trends Ecol. Evol. 34, 224–238. https://doi.org/10.1016/j.tree.2018.11.007*
-
-
-
-**A key reference for how to conduct a meta-analysis**
-
-- [Meta-evaluation of meta-analysis: Ten appraisal questions for biologists (Nakagawa et al. 2017)](https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-017-0357-7)   
-*Nakagawa, S., Noble, D. W., Senior, A. M., & Lagisz, M. (2017). Meta-evaluation of meta-analysis: ten appraisal questions for biologists. BMC biology, 15(1), 18. https://doi.org/10.1186/s12915-017-0357-7*
 
 </exercise>
